@@ -1,50 +1,46 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 import './App.scss';
-// import classNames from 'classnames';
+import classNames from 'classnames';
 // import { ColorsList } from './components/colors/ColorsList';
 import 'bulma/css/bulma.css';
-// import { useState } from 'react';
-// import { UsersTable } from './components/UsersTable/UsersTable';
-// import { getUsers } from './users';
-// import { UserInfo } from './components/UsersTable/UserInfo';
-// import { LoadingError } from './components/UsersTable/LoadingError';
-import { Face } from './components/Face/Face';
-
+import { UsersTable } from './components/UsersTable/UsersTable';
+import { getUsers } from './users';
+import { UserInfo } from './components/UsersTable/UserInfo';
+import { LoadingError } from './components/UsersTable/LoadingError';
 
 
 export const App = () => {
-  // const [users, setUsers] = useState([]);
-  // const [userId, setUserId] = useState(0);
-  // const [loading, setLoading] = useState(false);
-  // const [isLoadingFailed, setIsLoadingFailed] = useState(false);
-  // const [isInitialized, setIsInitialized] = useState(false);
+  const [users, setUsers] = useState([]);
+  const [userId, setUserId] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [isLoadingFailed, setIsLoadingFailed] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
 
-  // const loadUsers = async () => {
-  //   setLoading(true);
-  //   setIsLoadingFailed(false);
-  //   setIsInitialized(true);
+  const loadUsers = async () => {
+    setLoading(true);
+    setIsLoadingFailed(false);
+    setIsInitialized(true);
 
-  //   try {
-  //     const loadedUsers = await getUsers();
+    try {
+      const loadedUsers = await getUsers();
 
-  //     setUsers(loadedUsers)
-  //   } catch (error) {
-  //     setIsLoadingFailed(true);
-  //     setLoading(false);
-  //     setIsInitialized(false);
-  //   }
+      setUsers(loadedUsers)
+    } catch (error) {
+      setIsLoadingFailed(true);
+      setLoading(false);
+      setIsInitialized(false);
+    }
 
-  // }
+  }
 
-  // const handleSelectedUserId = (id) => {
-  //   setUserId(id);
-  // }
+  const handleSelectedUserId = (id) => {
+    setUserId(id);
+  }
 
 
   return (
     <div className="App">
-      <Face />
-      {/* <section className="section">
+      <section className="section">
         <div className="container">
           <h1 className="title">
             Mate academy
@@ -95,7 +91,7 @@ export const App = () => {
             )}
           </div>
         </div>
-      </section> */}
+      </section>
     </div>
  )
 }
